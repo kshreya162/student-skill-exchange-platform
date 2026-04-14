@@ -85,32 +85,58 @@ exports.login = async (req, res) => {
 };
 
 /* update skills */
+
 exports.updateSkills = async (req, res) => {
-    try {
 
-        const { userId, skillsOffered, skillsWanted } = req.body;
+try{
 
-        const user = await User.findByIdAndUpdate(
-            userId,
-            {
-                skillsOffered,
-                skillsWanted
-            },
-            { new: true }
-        );
+const {
 
-        res.json({
-            message: "Skills updated",
-            user
-        });
+userId,
 
-    } catch (error) {
+skillsOffered,
 
-        res.status(500).json({
-            error: error.message
-        });
+skillsWanted,
 
-    }
+bio,
+
+profilePic
+
+} = req.body;
+
+const user = await User.findByIdAndUpdate(
+
+userId,
+
+{
+skillsOffered,
+skillsWanted,
+bio,
+profilePic
+},
+
+{ new: true }
+
+);
+
+res.json({
+
+message:"Profile updated",
+
+user
+
+});
+
+}catch(error){
+
+res.status(500).json({
+
+error:error.message
+
+});
+
+}
+
 };
 
 /* search users by skill */

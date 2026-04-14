@@ -1,36 +1,42 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
 
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
+name: {
+type: String,
+required: true
+},
 
-    password: {
-        type: String,
-        required: true
-    },
+email: {
+type: String,
+required: true,
+unique: true
+},
 
-    bio: {
-        type: String,
-        default: ""
-    },
+password: {
+type: String,
+required: true
+},
 
-    skillsOffered: {
-        type: [String],
-        default: []
-    },
+bio: {
+type: String,
+default: ""
+},
 
-    skillsWanted: {
-        type: [String],
-        default: []
-    }
+skillsOffered: {
+type: [String],
+default: []
+},
+
+skillsWanted: {
+type: [String],
+default: []
+},
+
+profilePic:{
+type:String,
+default:""
+}
 
 }, { timestamps: true });
 
