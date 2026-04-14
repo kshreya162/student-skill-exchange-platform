@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { loginUser } from "../api/userApi";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 function Login(){
 
 const navigate = useNavigate();
@@ -56,7 +58,11 @@ alert(result.message);
 
 return(
 
-<div>
+<>
+
+<Header/>
+
+<div className="auth-container">
 
 <h2>Login</h2>
 
@@ -66,6 +72,7 @@ return(
 name="email"
 placeholder="Email"
 onChange={handleChange}
+required
 />
 
 <br/><br/>
@@ -75,15 +82,30 @@ name="password"
 type="password"
 placeholder="Password"
 onChange={handleChange}
+required
 />
 
 <br/><br/>
 
-<button>Login</button>
+<button>
+Login
+</button>
 
 </form>
 
+<p style={{marginTop:"15px"}}>
+
+New user? 
+
+<Link to="/">
+Signup
+</Link>
+
+</p>
+
 </div>
+
+</>
 
 );
 

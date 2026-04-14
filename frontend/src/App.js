@@ -17,7 +17,11 @@ return(
 
 <Routes>
 
-<Route path="/" element={<Login/>} />
+{/* default page */}
+<Route path="/" element={<Signup/>} />
+
+{/* login page */}
+<Route path="/login" element={<Login/>} />
 
 <Route path="/signup" element={<Signup/>} />
 
